@@ -1,10 +1,8 @@
 package com.hackerrank.github.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hackerrank.github.entity.EventEntity;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
 

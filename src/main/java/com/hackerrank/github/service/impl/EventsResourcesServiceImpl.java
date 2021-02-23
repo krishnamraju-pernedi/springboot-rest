@@ -1,17 +1,18 @@
-package com.hackerrank.github;
+package com.hackerrank.github.service.impl;
 
+import com.hackerrank.github.repository.EventRepository;
 import com.hackerrank.github.entity.EventEntity;
 import com.hackerrank.github.model.Event;
+import com.hackerrank.github.service.EventsService;
+import com.hackerrank.github.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class EventsService {
-
+public class EventsResourcesServiceImpl implements EventsService, ResourceService {
 
     @Autowired
     EventRepository eventRepository;

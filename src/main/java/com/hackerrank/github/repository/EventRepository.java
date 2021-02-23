@@ -1,4 +1,4 @@
-package com.hackerrank.github;
+package com.hackerrank.github.repository;
 
 import com.hackerrank.github.entity.EventEntity;
 import com.hackerrank.github.model.Event;

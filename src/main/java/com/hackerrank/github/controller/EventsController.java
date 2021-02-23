@@ -1,7 +1,7 @@
 package com.hackerrank.github.controller;
 
-import com.hackerrank.github.EventsService;
 import com.hackerrank.github.model.Event;
+import com.hackerrank.github.service.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class EventsController {
     public ResponseEntity crete(@RequestBody Event event) {
 
         boolean isSuccess = eventsService.createEvent(event);
-        if(isSuccess){
+        if (isSuccess) {
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -31,7 +31,7 @@ public class EventsController {
     public ResponseEntity<Event> findByEventId(@PathVariable long id) {
 
         Event event = eventsService.findEventById(id);
-        if(event ==null)
+        if (event == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.OK).body(event);
     }
@@ -41,7 +41,7 @@ public class EventsController {
     public ResponseEntity<List<Event>> findByRepoId(@PathVariable long repoId) {
 
         List<Event> events = eventsService.findEventByRepoId(repoId);
-        if(CollectionUtils.isEmpty(events))
+        if (CollectionUtils.isEmpty(events))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.OK).body(events);
     }
@@ -51,7 +51,7 @@ public class EventsController {
     public ResponseEntity<List<Event>> findByActorId(@PathVariable long actorId) {
 
         List<Event> events = eventsService.findEventByActorId(actorId);
-        if(CollectionUtils.isEmpty(events))
+        if (CollectionUtils.isEmpty(events))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.OK).body(events);
     }
@@ -59,7 +59,7 @@ public class EventsController {
     @GetMapping("/repos/{repoId}/actors/{actorId}")
     public ResponseEntity<List<Event>> findByRepoIdAAndActorId(@PathVariable long repoId, @PathVariable long actorId) {
         List<Event> events = eventsService.findEventByRepoIdActorId(repoId, actorId);
-        if(CollectionUtils.isEmpty(events))
+        if (CollectionUtils.isEmpty(events))
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.OK).body(events);
 
@@ -69,7 +69,7 @@ public class EventsController {
     @GetMapping
     public ResponseEntity<List<Event>> findAllEvents() {
         List<Event> events = eventsService.findAllEvents();
-        if(events == null)
+        if (events == null)
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.status(HttpStatus.OK).body(events);
     }
